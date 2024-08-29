@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Component Example</title>
+</head>
+<body>
+
+    <h1>React Component with LEGO Blocks Example</h1>
+    <button id="callApiButton">Call API</button>
+    <p id="responseText">API response will appear here.</p>
+
+    <script>
+        document.getElementById('callApiButton').addEventListener('click', function() {
+            fetch('/api/greet')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('responseText').innerText = data.message;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+</html>

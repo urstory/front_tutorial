@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 호출 예제</title>
+</head>
+<body>
+
+    <h1>API 호출 예제</h1>
+    <button id="callApiButton">API 호출</button>
+    <p id="responseText">여기에 API 응답이 표시됩니다.</p>
+
+    <script>
+        document.getElementById('callApiButton').addEventListener('click', function() {
+            fetch('/api/greet')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('responseText').innerText = data.message;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+</html>
